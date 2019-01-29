@@ -17,11 +17,16 @@ class CreateTasksTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->unsignedInteger('project_id');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
 
             $table->foreign('project_id')
                 ->references('id')
                 ->on('projects');
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('user');
         });
     }
 

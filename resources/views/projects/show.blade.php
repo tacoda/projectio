@@ -3,6 +3,12 @@
 @section('title', $project->name)
 
 @section('content')
+    <h3>
+        <a href="/customers/{{ $customer->id }}">
+            Back to {{ $customer->name }}
+        </a>
+    </h3>
+
     <h1 class="title">{{ $project->name }}</h1>
     <hr />
 

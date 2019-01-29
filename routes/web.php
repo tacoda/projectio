@@ -11,7 +11,10 @@
 |
 */
 
-Auth::routes();
+Route::get('/login', 'Auth\LoginController@showLoginForm');
+Route::post('/login', 'Auth\LoginController@login');
+Route::post('/logout', 'Auth\LoginController@logout');
+
 Route::get('/', 'HomeController@index');
 
 Route::post('/customers/{customer}/projects/{project}/tasks/{task}/intervals', 'IntervalsController@store');

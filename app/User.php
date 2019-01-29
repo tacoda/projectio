@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'admin'
     ];
 
     /**
@@ -34,5 +34,9 @@ class User extends Authenticatable
 
     public function comments() {
         return $this->hasMany(Comment::class, 'owner_id');
+    }
+
+    public function isAdmin() {
+        return (bool) $this->admin;
     }
 }

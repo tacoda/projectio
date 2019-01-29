@@ -15,4 +15,8 @@ class Task extends Model
     public function intervals() {
         return $this->hasMany(Interval::class);
     }
+
+    public function owner() {
+        return $this->belongsTo(User::class);
+    }
 }

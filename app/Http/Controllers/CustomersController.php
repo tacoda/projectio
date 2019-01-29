@@ -26,7 +26,9 @@ class CustomersController extends Controller
 
     public function store() {
         $attributes = $this->validateCustomer();
-        Customer::create($attributes);
+        $customer = Customer::make($attributes);
+        $this->authorize('create', $customer);
+        $customer->save();
         session()->flash('message', 'New customer created!');
         return redirect('/customers');
     }
