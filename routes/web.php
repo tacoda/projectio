@@ -12,15 +12,21 @@
 */
 
 Auth::routes();
-Route::get('/', function() {
-    return redirect('/posts');
-});
-Route::resource('posts', 'PostsController');
-Route::patch('/posts/{post}/like', 'PostsController@like');
-Route::patch('/posts/{post}/unlike', 'PostsController@unlike');
-Route::post('/posts/{post}/comments', 'CommentsController@store');
-Route::get('/comments/{comment}/edit', 'CommentsController@edit');
-Route::patch('/comments/{comment}/like', 'CommentsController@like');
-Route::patch('/comments/{comment}/unlike', 'CommentsController@unlike');
-Route::patch('/comments/{comment}', 'CommentsController@update');
-Route::delete('/comments/{comment}', 'CommentsController@destroy');
+Route::get('/', 'HomeController@index');
+
+Route::post('/customers/{customer}/projects/{project}/tasks/{task}/intervals', 'IntervalsController@store');
+Route::get('/customers/{customer}/projects/{project}/tasks/{task}/intervals/create', 'IntervalsController@create');
+Route::get('/customers/{customer}/projects/{project}/tasks/{task}/intervals/{interval}', 'IntervalsController@show');
+
+Route::post('/customers/{customer}/projects/{project}/tasks', 'TasksController@store');
+Route::get('/customers/{customer}/projects/{project}/tasks/create', 'TasksController@create');
+Route::get('/customers/{customer}/projects/{project}/tasks/{task}', 'TasksController@show');
+
+Route::post('/customers/{customer}/projects', 'ProjectsController@store');
+Route::get('/customers/{customer}/projects/create', 'ProjectsController@create');
+Route::get('/customers/{customer}/projects/{project}', 'ProjectsController@show');
+
+Route::get('/customers', 'CustomersController@index');
+Route::post('/customers', 'CustomersController@store');
+Route::get('/customers/create', 'CustomersController@create');
+Route::get('/customers/{customer}', 'CustomersController@show');

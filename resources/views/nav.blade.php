@@ -6,12 +6,11 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
-            <li><a href="/posts/create">Create Post</a></li>
+            <li><a href="/customers">Customers</a></li>
         @else
             <i class="fas fa-user"></i>&nbsp;Guest
             <li><a href="/login">Log In</a></li>
             <li><a href="/register">Register</a></li>
         @endif
-        <li><a href="/posts">All Posts</a></li>
     </ul>
 </nav>

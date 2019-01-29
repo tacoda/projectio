@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostsTable extends Migration
+class CreateIntervalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,16 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('intervals', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('owner_id');
-            $table->string('title');
-            $table->text('content');
+            $table->unsignedInteger('task_id');
+            $table->timestamp('start_time');
+            $table->timestamp('stop_time');
             $table->timestamps();
 
-            $table->foreign('owner_id')
+            $table->foreign('task_id')
                 ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
+                ->on('tasks');
         });
     }
 
@@ -34,6 +33,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('intervals');
     }
 }
