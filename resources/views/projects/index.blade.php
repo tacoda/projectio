@@ -5,7 +5,9 @@
 @section('content')
     <h1 class="title">Projects</h1>
 
+    @if(auth()->user()->isAdmin())
     <h3><a href="/projects/create"><i class="fas fa-plus-circle"></i>&nbsp;Create a new Project</a></h3>
+    @endif
 
     <hr />
 

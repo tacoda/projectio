@@ -6,11 +6,13 @@
             <form id="logout-form" action="/logout" method="POST" style="display: none;">
                 @csrf
             </form>
+            @if(auth()->user()->isAdmin())
+            <li><a href="/register">Create User</a></li>
+            @endif
             <li><a href="/customers">Customers</a></li>
         @else
             <i class="fas fa-user"></i>&nbsp;Guest
             <li><a href="/login">Log In</a></li>
-            <li><a href="/register">Register</a></li>
         @endif
     </ul>
 </nav>

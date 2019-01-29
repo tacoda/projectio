@@ -21,6 +21,9 @@ class CustomersController extends Controller
     }
 
     public function create() {
+        if(! auth()->user()->isAdmin()) {
+            return abort(403);
+        }
         return view('customers.create');
     }
 
@@ -31,6 +34,19 @@ class CustomersController extends Controller
         $customer->save();
         session()->flash('message', 'New customer created!');
         return redirect('/customers');
+    }
+
+    public function edit(Customer $customer) {
+        $this->authorize('update', $customer);
+        return view('customers.edit')->with(['customer' => $customer]);
+    }
+
+    public function update(Customer $customer) {
+        $this->authorize('update', $customer);
+        $attributes = $this->validateCustomer();
+        $customer->update($attributes);
+        session()->flash('message', 'Customer updated!');
+        return redirect('/customers/' . $customer->id);
     }
 
     private function validateCustomer() {

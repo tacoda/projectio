@@ -12,7 +12,7 @@
             <label class="label" for="start_time">Start Time</label>
 
             <div class="control">
-                <input type="datetime-local" class="input {{ $errors->has('title') ? 'is-danger' : '' }}" name="start_time" value="{{ old('title') }}" required>
+                <input type="datetime-local" class="input {{ $errors->has('start_time') ? 'is-danger' : '' }}" name="start_time" required>
             </div>
         </div>
 
@@ -20,7 +20,7 @@
             <label class="label" for="stop_time">Stop Time</label>
 
             <div class="control">
-                <input type="datetime-local" class="input {{ $errors->has('title') ? 'is-danger' : '' }}" name="stop_time" value="{{ old('title') }}" required>
+                <input type="datetime-local" class="input {{ $errors->has('stop_time') ? 'is-danger' : '' }}" name="stop_time" required>
             </div>
         </div>
 

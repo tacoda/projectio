@@ -10,6 +10,9 @@
     </h3>
 
     <h1 class="title">{{ $project->name }}</h1>
+    @can('update', $project)
+        <a href="/customers/{{ $customer->id }}/projects/{{ $project->id }}/edit">Edit</a>
+    @endcan
     <hr />
 
     <h1 class="title">Tasks</h1>

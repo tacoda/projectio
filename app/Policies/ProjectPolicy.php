@@ -6,7 +6,7 @@ use App\Project;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class CustomerPolicy
+class ProjectPolicy
 {
     use HandlesAuthorization;
 
@@ -21,6 +21,10 @@ class CustomerPolicy
     }
 
     public function create(User $user, Project $project) {
+        return auth()->user()->isAdmin();
+    }
+
+    public function update(User $user, Project $project) {
         return auth()->user()->isAdmin();
     }
 }

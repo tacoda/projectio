@@ -9,10 +9,10 @@
         @csrf
 
         <div class="field">
-            <label class="label" for="title">Name</label>
+            <label class="label" for="name">Name</label>
 
             <div class="control">
-                <input type="text" class="input {{ $errors->has('title') ? 'is-danger' : '' }}" name="name" value="{{ old('title') }}" placeholder="Project Name" required>
+                <input type="text" class="input {{ $errors->has('name') ? 'is-danger' : '' }}" name="name" value="{{ old('name') }}" placeholder="Project Name" required>
             </div>
         </div>
 

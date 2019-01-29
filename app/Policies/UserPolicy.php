@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Customer;
+use App\Project;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class CustomerPolicy
+class UserPolicy
 {
     use HandlesAuthorization;
 
@@ -20,11 +20,7 @@ class CustomerPolicy
         //
     }
 
-    public function create(User $user, Customer $customer) {
-        return auth()->user()->isAdmin();
-    }
-
-    public function update(User $user, Customer $customer) {
+    public function create($user = null) {
         return auth()->user()->isAdmin();
     }
 }
